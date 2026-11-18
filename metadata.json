@@ -1,0 +1,8 @@
+{
+  "name": "Simulador NGN: servicios de borde, VPN, MPLS y QoS",
+  "description": "Aplicación interactiva de ingeniería de telecomunicaciones para simular servicios de borde (DHCP relay, HSRP, PPP/PPPoE, NAT), túneles GRE/IPsec, MPLS L3VPN, GPON FTTH, QoS DiffServ y diseño paramétrico de redes NGN.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

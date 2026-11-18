@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Saira Condensed", "Saira", sans-serif;
+  --font-saira: "Saira", "Saira Condensed", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  body {
+    background-color: #E8EDF4;
+    color: #0F172A;
+    font-family: var(--font-sans);
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  html[data-theme="dark"] body {
+    background-color: #070B14;
+    color: #F1F5F9;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-saira {
+  font-family: var(--font-saira);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle engineering dot-grid canvas background */
+.bg-dot-grid {
+  background-color: #F8FAFC;
+  background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+html[data-theme="dark"] .bg-dot-grid {
+  background-color: #0B1220;
+  background-image: radial-gradient(#1E293B 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.bg-dot-grid-dark {
+  background-color: #0B1120;
+  background-image: radial-gradient(#1E293B 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Custom thin scrollbars for consoles & panels */
+.console-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.console-scroll::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+}
+.console-scroll::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.5);
+  border-radius: 3px;
+}
+.console-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 6 6;
+  animation: dashFlow 0.9s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-dash-flow {
+    animation: none;
+  }
+}
+
+/* Clean PDF / Print styling for Acta SLA & ITU-T Y.1564 Deliverable */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+  }
+  header,
+  aside,
+  .no-print {
+    display: none !important;
+  }
+  .print-full-width {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .print-break-inside-avoid {
+    break-inside: avoid;
+  }
+}
